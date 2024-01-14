@@ -24,6 +24,22 @@ function binarySearch(array, item) {
     }
     return position;
 }
+
+// Бинарный поиск рекурсивным способом
+function recursiveBinarySearch(array, item, start, end) {
+    let middle = Math.floor((start + end) / 2);
+    count += 1;
+    if (item === array[middle]) {
+        return middle;
+    }
+    if (item < array[middle]) {
+        return recursiveBinarySearch(array, item, start, middle - 1);
+    } else {
+        return recursiveBinarySearch(array, item, middle + 1, end);
+    }
+}
+
 console.log(array.length);
-console.log(binarySearch(array, 8));
+console.log(recursiveBinarySearch(array, 2, 0, array.length));
+// console.log(binarySearch(array, 2));
 console.log(count);
